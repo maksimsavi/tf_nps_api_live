@@ -1,4 +1,6 @@
-
+let locationInput,
+            resultmax,
+            state;
 
 const APIkey = '';
 const fetchOptions = { 'X-Api-Key': 'sVI3vB7wsPwAYW0WWSbEeut3oOfV8E2PX6Fr7EMt'};
@@ -8,11 +10,11 @@ function catchResponse() {
     $("#locationInput").submit(function( event ) {
         event.preventDefault();
         
-        let locationInput = $("input[type=text][name=location]").val()
-            resultmax = $("input[type=number][name=maxlimit]").val()
-            state = $("#state").val();
-            console.log('fetching data...');
-            fetchData (locationInput, resultmax, state);
+        locationInput = $("input[type=text][name=location]").val()
+        resultmax = $("input[type=number][name=maxlimit]").val()
+        state = $("#state").val();
+        console.log('fetching data...');
+        fetchData (locationInput, resultmax, state);
         });
     
 }
