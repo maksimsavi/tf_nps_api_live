@@ -1,3 +1,5 @@
+
+
 const APIkey = '';
 const fetchOptions = { 'X-Api-Key': 'sVI3vB7wsPwAYW0WWSbEeut3oOfV8E2PX6Fr7EMt'};
 //catches response and passes to fetch
@@ -48,6 +50,7 @@ function processData(json) {
         postData(dataArray);
     }
 function postData(dataArray){
+    $( "#results>ul" ).empty(); 
     dataArray.forEach(element => 
         $( "#results>ul" ).append(element)    
         );
