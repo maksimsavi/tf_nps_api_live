@@ -1,3 +1,4 @@
+'use strict'
 let locationInput,
             resultmax,
             state;
@@ -13,11 +14,18 @@ function catchResponse() {
         locationInput = $("input[type=text][name=location]").val()
         resultmax = $("input[type=number][name=maxlimit]").val()
         state = $("#state").val();
-        console.log('fetching data...');
+        console.log('fetching data...', state);
         fetchData (locationInput, resultmax, state);
         });
     
 }
+
+function formatQueryParams(params) {
+    const queryItems = Object.keys(params)
+          .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
+return queryItems.join('&');
+ }
+
 function fetchData (locationInput, resultmax, state) {
     
     fetch(`https://developer.nps.gov/api/v1/parks?api_key=sVI3vB7wsPwAYW0WWSbEeut3oOfV8E2PX6Fr7EMt&limit=${resultmax}&stateCode=${state}`)
